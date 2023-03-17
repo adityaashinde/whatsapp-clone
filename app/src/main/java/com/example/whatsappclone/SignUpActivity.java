@@ -12,6 +12,7 @@ import com.example.whatsappclone.Models.Users;
 import com.example.whatsappclone.databinding.ActivitySignUpBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -21,7 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    FirebaseDatabase database;
+    FirebaseApp database;
     ProgressDialog progressDialog;
 
     @Override
@@ -33,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        database = FirebaseDatabase.getInstance();
+        database = FirebaseApp.getInstance();
 
         getSupportActionBar().hide();
 

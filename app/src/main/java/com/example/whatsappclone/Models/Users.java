@@ -19,6 +19,7 @@ public class Users {
         this.status = status;
     }
 
+    // create a constructor
     public Users(String userName, String mail, String password) {
         this.userName = userName;
         this.mail = mail;

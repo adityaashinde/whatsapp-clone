@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.whatsappclone.Models.Users;
 import com.example.whatsappclone.databinding.ActivitySignUpBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -54,6 +55,11 @@ public class SignUpActivity extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     if (task.isSuccessful())
                                     {
+                                        Users user = new Users(binding.txtUserName.getText().toString(), binding.txtEmail.getText().toString(), binding.txtPassword.getText().toString());
+                                        String id = task.getResult().getUser().getUid();
+                                        database.getReference().child("Users").child(id).setValue(user);
+
+
                                         Toast.makeText(SignUpActivity.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
                                     }
                                     else
